@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
 import './css/App.css';
+import Home from "./components/Home";
 import Navbar from "./components/Navbar/Navbar";
+import { REQUESTS } from "./fieldsApi";
 import RequestsContainer from "./components/RequestsContainer/RequestsContainer";
-import RequestContainer from "./components/Request/RequestContainer";
 
 class App extends Component {
 
@@ -22,23 +24,17 @@ class App extends Component {
 
     const loggedIn = this.state.loggedIn;
 
-    const REQUESTS = [
-        {id: 1, name: "Request 1", status: "Production", completed: false},
-        {id: 2, name: "Request 2", status: "Finance", completed: false},
-        {id: 3, name: "Request 3", status: "Planning", completed: false},
-        {id: 4, name: "Request 4", status: "Approved", completed: true}
-    ];
-
-    const REQUEST_FIELDS = [
-        {id: 1, group: "requestor", fields: ["product_name", "brand"]},
-        {id: 2, group: "production", fields: ["liquid", "alcohol_level"]}
-    ]
-
     return (
       <div className="">
         <Navbar loggedIn={loggedIn} onLoginOutClick={this.onLoginOutClick}/>
-        <RequestsContainer requests={REQUESTS} />
-        <RequestContainer fields={REQUEST_FIELDS}/>
+          <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route path='/Home' component={Home}/>
+              <Route path='/Z002' render={props => <RequestsContainer {...props} requests={REQUESTS}/>} />
+              <Route path='/Z010' render={props => <RequestsContainer {...props} requests={REQUESTS}/>} />
+              <Route path='/Z012' render={props => <RequestsContainer {...props} requests={REQUESTS}/>} />
+
+          </Switch>
       </div>
     );
   }

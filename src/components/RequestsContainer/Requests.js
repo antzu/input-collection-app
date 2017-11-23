@@ -10,7 +10,10 @@ class Requests extends Component {
 
         const requestRows = [];
 
-        this.props.requests.forEach(request => {
+        this.props.requests.forEach((request) => {
+
+            //URL got from Route
+            const url = this.props.match.url;
 
             if(request.name.indexOf(filterText) === -1) {
                 return;
@@ -20,6 +23,7 @@ class Requests extends Component {
             }
             requestRows.push(
                 <RequestRow
+                    url={url}
                     request={request}
                     key={request.id}
                 />

@@ -1,5 +1,6 @@
 import React, { Component }from 'react';
 import RequestInputGroup from "./RequestInputGroup";
+import { Link } from "react-router-dom";
 
 
 class RequestContainer extends Component {
@@ -17,6 +18,9 @@ class RequestContainer extends Component {
                 <h3>Request</h3>
 
                 {fieldGroups}
+                <br />
+                <button onClick={this.props.history.goBack}>back</button>
+
 
             </div>
         );

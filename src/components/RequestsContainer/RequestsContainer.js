@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
 import SearchBar from "./SearchBar";
 import Requests from "./Requests";
 import NewRequestButton from "./NewRequestButton";
+import RequestContainer from "../Request/RequestContainer";
+import { REQUEST_FIELDS } from "../../fieldsApi";
 
 class RequestsContainer extends Component {
 
@@ -29,21 +32,44 @@ class RequestsContainer extends Component {
     }
 
     render() {
+
+        const REQUESTS = this.props.requests;
+        const filterText = this.state.filterText;
+        const isCompletedOnly = this.state.isCompletedOnly;
+
         return (
             <div className="">
+
                 <SearchBar
-                    filterText={this.state.filterText}
-                    isCompletedOnly={this.state.isCompletedOnly}
+                    filterText={filterText}
+                    isCompletedOnly={isCompletedOnly}
                     onFilterTextChange={this.handleFilterTextChange}
                     onIsCompletedChange={this.handleIsCompletedChange}
                 />
                 <NewRequestButton/>
-                <Requests
-                    requests={this.props.requests}
-                    filterText={this.state.filterText}
-                    isCompletedOnly={this.state.isCompletedOnly}
-                />
+                
+                {/*<Requests*/}
+                {/*requests={REQUESTS}*/}
+                {/*filterText={filterText}*/}
+                {/*isCompletedOnly={isCompletedOnly}*/}
+                {/*/>*/}
 
+                <Switch>
+                    <Route
+                        exact path={this.props.match.url}
+                        render={props => <Requests {...props}
+                                                   requests={REQUESTS}
+                                                   filterText={filterText}
+                                                   isCompletedOnly={isCompletedOnly}
+                        />}
+                    />
+                    <Route
+                        path={`${this.props.match.url}/:requestId`}
+                        render={props => <RequestContainer {...props}
+                                                           fields={REQUEST_FIELDS}
+                        />}
+                    />
+                </Switch>
             </div>
         );
     }

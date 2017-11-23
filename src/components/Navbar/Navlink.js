@@ -1,11 +1,12 @@
 import React, { Component }from 'react';
+import { Link } from 'react-router-dom';
 
 class Navlink extends Component {
 
     render() {
         return (
             <div className="">
-                <h3>{this.props.description}</h3>
+                <li><Link to={"/"+this.props.description}>{this.props.description}</Link></li>
             </div>
         );
     }
