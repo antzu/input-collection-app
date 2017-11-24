@@ -15,7 +15,7 @@ class RequestContainer extends Component {
         const fieldGroups = [];
 
         this.props.fields.forEach(inputGroup => {
-            fieldGroups.push(<RequestInputGroup name={inputGroup.group} fields={inputGroup.fields}/>)
+            fieldGroups.push(<RequestInputGroup key={inputGroup.group} name={inputGroup.group} fields={inputGroup.fields}/>)
         })
 
         return (

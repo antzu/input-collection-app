@@ -7,7 +7,7 @@ class Navbar extends Component {
     render() {
 
         const linksDescriptions = ["Home", "Z002", "Z010", "Z012"];
-        const links = linksDescriptions.map(link => <Navlink description={link}/>);
+        const links = linksDescriptions.map(link => <Navlink key={link} description={link}/>);
 
         return (
 

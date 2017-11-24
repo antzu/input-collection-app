@@ -7,7 +7,13 @@ import * as actions from '../../actions';
 class Requests extends Component {
 
     componentWillMount(){
-        this.props.fetchRequests();
+        const requestType = this.props.match.url;
+        this.props.fetchRequests(requestType);
+    }
+
+    componentWillReceiveProps(){
+        const requestType = this.props.match.url;
+        this.props.fetchRequests(requestType);
     }
 
     render() {

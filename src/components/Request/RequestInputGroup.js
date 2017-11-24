@@ -8,7 +8,7 @@ class RequestInputGroup extends Component {
         const fields = [];
 
         this.props.fields.forEach(field => {
-            fields.push(<RequestInput name={field}/>)
+            fields.push(<RequestInput key={field} name={field}/>)
         })
         return (
             <div className="">

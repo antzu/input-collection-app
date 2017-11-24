@@ -1,13 +1,30 @@
 import { FETCH_REQUESTS, FETCH_REQUEST_FIELDS } from './actionTypes';
-import { REQUESTS, REQUEST_FIELDS } from '../requestsAPI';
+import { REQUESTS_Z012, REQUESTS_Z010, REQUESTS_Z002, REQUEST_FIELDS } from '../requestsAPI';
 
-export function fetchRequests() {
-    const requests = REQUESTS;
+export function fetchRequests(requestType) {
+    let  requests = [];
+
+    switch (requestType) {
+        case "/Z002":
+            requests = REQUESTS_Z002;
+            break;
+
+        case "/Z010":
+            requests = REQUESTS_Z010;
+            break;
+
+        case "/Z012":
+            requests = REQUESTS_Z012;
+            break;
+
+        default:
+
+    }
+
     return {
         type: FETCH_REQUESTS,
         payload: requests
     }
-
 }
 
 export function fetchRequestFields() {
