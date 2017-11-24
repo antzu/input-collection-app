@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom'
 import './css/App.css';
 import Home from "./components/Home";
 import Navbar from "./components/Navbar/Navbar";
-import { REQUESTS } from "./requestsAPI";
 import RequestsContainer from "./components/RequestsContainer/RequestsContainer";
 
 class App extends Component {
@@ -14,7 +13,7 @@ class App extends Component {
       this.onLoginOutClick = this.onLoginOutClick.bind(this);
       this.state = {
           loggedIn: false,
-          requests: REQUESTS
+
       };
   }
 
@@ -26,7 +25,6 @@ class App extends Component {
   render() {
 
     const loggedIn = this.state.loggedIn;
-    const requests = this.state.requests;
 
     return (
       <div className="">
@@ -34,9 +32,9 @@ class App extends Component {
           <Switch>
               <Route exact path='/' component={Home}/>
               <Route path='/Home' component={Home}/>
-              <Route path='/Z002' render={props => <RequestsContainer {...props} requests={requests}/>} />
-              <Route path='/Z010' render={props => <RequestsContainer {...props} requests={requests}/>} />
-              <Route path='/Z012' render={props => <RequestsContainer {...props} requests={requests}/>} />
+              <Route path='/Z002' render={props => <RequestsContainer {...props} />} />
+              <Route path='/Z010' render={props => <RequestsContainer {...props} />} />
+              <Route path='/Z012' render={props => <RequestsContainer {...props} />} />
 
           </Switch>
       </div>

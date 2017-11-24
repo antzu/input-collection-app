@@ -1,8 +1,8 @@
-import { FETCH_REQUESTS } from '../actions/actionTypes';
+import { FETCH_REQUEST_FIELDS } from '../actions/actionTypes';
 
 export default function (state = [], action) {
     switch (action.type) {
-        case FETCH_REQUESTS:
+        case FETCH_REQUEST_FIELDS:
             return action.payload;
 
         default:

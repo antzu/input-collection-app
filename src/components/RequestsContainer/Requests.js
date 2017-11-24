@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import RequestRow from "./RequestRow";
 
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+
 class Requests extends Component {
+
+    componentWillMount(){
+        this.props.fetchRequests();
+    }
 
     render() {
 
@@ -48,4 +55,8 @@ class Requests extends Component {
     }
 }
 
-export default Requests;
+function mapStateToProps(state) {
+    return { requests: state.requests}
+}
+
+export default connect(mapStateToProps, actions)(Requests);

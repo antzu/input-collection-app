@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
+
 import SearchBar from "./SearchBar";
 import Requests from "./Requests";
 import NewRequestButton from "./NewRequestButton";
 import RequestContainer from "../Request/RequestContainer";
-import { REQUEST_FIELDS } from "../../requestsAPI";
 
 class RequestsContainer extends Component {
 
@@ -33,7 +33,6 @@ class RequestsContainer extends Component {
 
     render() {
 
-        const REQUESTS = this.props.requests;
         const filterText = this.state.filterText;
         const isCompletedOnly = this.state.isCompletedOnly;
 
@@ -58,7 +57,6 @@ class RequestsContainer extends Component {
                     <Route
                         exact path={this.props.match.url}
                         render={props => <Requests {...props}
-                                                   requests={REQUESTS}
                                                    filterText={filterText}
                                                    isCompletedOnly={isCompletedOnly}
                         />}
@@ -66,7 +64,6 @@ class RequestsContainer extends Component {
                     <Route
                         path={`${this.props.match.url}/:requestId`}
                         render={props => <RequestContainer {...props}
-                                                           fields={REQUEST_FIELDS}
                         />}
                     />
                 </Switch>

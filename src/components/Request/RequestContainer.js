@@ -1,9 +1,14 @@
 import React, { Component }from 'react';
 import RequestInputGroup from "./RequestInputGroup";
-import { Link } from "react-router-dom";
 
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 class RequestContainer extends Component {
+
+    componentWillMount(){
+        this.props.fetchRequestFields();
+    }
 
     render() {
 
@@ -27,4 +32,8 @@ class RequestContainer extends Component {
     }
 }
 
-export default RequestContainer;
+function mapStateToProps(state) {
+    return { fields: state.requestFields }
+}
+
+export default connect(mapStateToProps, actions)(RequestContainer);
