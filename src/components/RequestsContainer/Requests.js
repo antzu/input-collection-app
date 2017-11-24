@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RequestRow from "./RequestRow";
 
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { fetchRequests } from '../../actions';
 
 class Requests extends Component {
 
@@ -15,6 +15,7 @@ class Requests extends Component {
         const requestType = this.props.match.url;
         this.props.fetchRequests(requestType);
     }
+
 
     render() {
 
@@ -65,4 +66,4 @@ function mapStateToProps(state) {
     return { requests: state.requests}
 }
 
-export default connect(mapStateToProps, actions)(Requests);
+export default connect(mapStateToProps, { fetchRequests })(Requests);

@@ -2,7 +2,7 @@ import React, { Component }from 'react';
 import RequestInputGroup from "./RequestInputGroup";
 
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { fetchRequestFields } from '../../actions';
 
 class RequestContainer extends Component {
 
@@ -36,4 +36,4 @@ function mapStateToProps(state) {
     return { fields: state.requestFields }
 }
 
-export default connect(mapStateToProps, actions)(RequestContainer);
+export default connect(mapStateToProps, { fetchRequestFields })(RequestContainer);
