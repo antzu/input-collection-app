@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import Requests from "./Requests";
 import NewRequestButton from "./NewRequestButton";
 import RequestContainer from "../Request/RequestContainer";
-import { REQUEST_FIELDS } from "../../fieldsApi";
+import { REQUEST_FIELDS } from "../../requestsAPI";
 
 class RequestsContainer extends Component {
 
@@ -47,7 +47,7 @@ class RequestsContainer extends Component {
                     onIsCompletedChange={this.handleIsCompletedChange}
                 />
                 <NewRequestButton/>
-                
+
                 {/*<Requests*/}
                 {/*requests={REQUESTS}*/}
                 {/*filterText={filterText}*/}
