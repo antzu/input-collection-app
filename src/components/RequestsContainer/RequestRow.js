@@ -20,5 +20,3 @@ class RequestRow extends Component {
 }
 
 export default RequestRow;
-
-//<Link to={`${this.props.match.url}/${request.id}`}>{request.id}</Link>

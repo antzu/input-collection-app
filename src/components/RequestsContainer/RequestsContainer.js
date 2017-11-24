@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 
+import { connect } from 'react-redux';
+import { fetchRequests } from '../../actions';
+
 import SearchBar from "./SearchBar";
 import Requests from "./Requests";
 import NewRequestButton from "./NewRequestButton";
 import RequestContainer from "../Request/RequestContainer";
 
 class RequestsContainer extends Component {
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -33,8 +36,10 @@ class RequestsContainer extends Component {
 
     render() {
 
+        console.log(this.props.match.url);
         const filterText = this.state.filterText;
         const isCompletedOnly = this.state.isCompletedOnly;
+        // const requests = this.props.requests;
 
         return (
             <div className="">
@@ -59,6 +64,7 @@ class RequestsContainer extends Component {
                         render={props => <Requests {...props}
                                                    filterText={filterText}
                                                    isCompletedOnly={isCompletedOnly}
+                                                   // requests={requests}
                         />}
                     />
                     <Route

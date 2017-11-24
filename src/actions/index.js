@@ -7,14 +7,17 @@ export function fetchRequests(requestType) {
     switch (requestType) {
         case "/Z002":
             requests = REQUESTS_Z002;
+            console.log("Dispatched: z002");
             break;
 
         case "/Z010":
             requests = REQUESTS_Z010;
+            console.log("Dispatched: z010");
             break;
 
         case "/Z012":
             requests = REQUESTS_Z012;
+            console.log("Dispatched: z012");
             break;
 
         default:

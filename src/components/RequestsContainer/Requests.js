@@ -6,18 +6,27 @@ import { fetchRequests } from '../../actions';
 
 class Requests extends Component {
 
-    componentWillMount(){
-        const requestType = this.props.match.url;
-        this.props.fetchRequests(requestType);
+
+    componentDidMount(){
+        console.log("Mounted Requests...")
+        this.fetchRequestsByUrl(this.props.match.url)
+
     }
 
-    componentWillReceiveProps(){
-        const requestType = this.props.match.url;
-        this.props.fetchRequests(requestType);
+    componentDidUpdate(){
+        console.log("Updating Requests...")
+        this.fetchRequestsByUrl(this.props.match.url)
+
     }
 
+    fetchRequestsByUrl(url){
+        console.log("Requests fetching " + url);
+        this.props.fetchRequests(url);
+    }
 
     render() {
+
+        console.log("Rendered REQUESTS");
 
         const filterText = this.props.filterText;
         const isCompletedOnly = this.props.isCompletedOnly;
