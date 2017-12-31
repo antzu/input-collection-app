@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RequestRow from "./RequestRow";
+import NewRequestButton from "./NewRequestButton";
 
 import { connect } from 'react-redux';
 import { fetchRequests } from '../../actions';
@@ -55,6 +56,7 @@ class Requests extends Component {
 
         return (
             <div className="">
+                <NewRequestButton/>
                 <table>
                     <thead>
                         <tr>

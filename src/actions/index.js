@@ -1,4 +1,4 @@
-import { FETCH_REQUESTS, FETCH_REQUEST_FIELDS } from './actionTypes';
+import { FETCH_REQUESTS, FETCH_REQUEST_FIELDS, NEW_REQUEST } from './actionTypes';
 import { REQUESTS_Z012, REQUESTS_Z010, REQUESTS_Z002, REQUEST_FIELDS } from '../requestsAPI';
 
 export function fetchRequests(requestType) {
@@ -32,9 +32,29 @@ export function fetchRequests(requestType) {
 
 export function fetchRequestFields() {
     const requestFields = REQUEST_FIELDS;
+
     return {
         type: FETCH_REQUEST_FIELDS,
         payload: requestFields
+    }
+
+}
+
+class Request {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+        this.status = "Production";
+        this.completed = false;
+    }
+}
+
+export function newRequest(id, name) {
+    const request = new Request(id, name);
+
+    return {
+        type: NEW_REQUEST,
+        payload: request
     }
 
 }

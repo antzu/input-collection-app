@@ -6,7 +6,7 @@ import { fetchRequests } from '../../actions';
 
 import SearchBar from "./SearchBar";
 import Requests from "./Requests";
-import NewRequestButton from "./NewRequestButton";
+
 import RequestContainer from "../Request/RequestContainer";
 
 class RequestsContainer extends Component {
@@ -50,7 +50,7 @@ class RequestsContainer extends Component {
                     onFilterTextChange={this.handleFilterTextChange}
                     onIsCompletedChange={this.handleIsCompletedChange}
                 />
-                <NewRequestButton/>
+
 
                 {/*<Requests*/}
                 {/*requests={REQUESTS}*/}
